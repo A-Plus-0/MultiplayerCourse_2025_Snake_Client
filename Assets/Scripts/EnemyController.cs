@@ -42,6 +42,6 @@ public class EnemyController : MonoBehaviour
     public void Destroy()
     {
         if (_player != null) _player.OnChange -= OnChange;
-        _snake.Destroy();
+        _snake?.Destroy();
     }
 }

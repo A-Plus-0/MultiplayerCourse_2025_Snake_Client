@@ -6,13 +6,16 @@ public class Tail : MonoBehaviour
     [SerializeField] private Transform _detailPrefab;
     [SerializeField] private float _detailDistance = 1f;
 
+    [SerializeField] private SetSkin _setSkin;
+    private Material _detailsMaterial;
+
     private Transform _head;
     private float _snakeSpeed = 2;
     private List<Transform> _details = new List<Transform>();
     private List<Vector3> _positionHistory = new List<Vector3>();
     private List<Quaternion> _rotationHistory = new List<Quaternion>();
 
-    public void Init(Transform head, float speed, int detailCount)
+    public void Init(Transform head, float speed, int detailCount, Material material)
     {
         _head = head;
         _snakeSpeed = speed;
@@ -22,7 +25,10 @@ public class Tail : MonoBehaviour
         _positionHistory.Add(transform.position);
         _rotationHistory.Add(transform.rotation);
 
+        _detailsMaterial = material;
+        _setSkin.Set(_detailsMaterial);
         SetDetailCount(detailCount);
+        
     }
 
     public void SetDetailCount(int detailCount)
@@ -51,10 +57,13 @@ public class Tail : MonoBehaviour
         Vector3 position = _details[_details.Count - 1].position;
         Quaternion rotation = _details[_details.Count - 1].rotation;
         Transform detail = Instantiate(_detailPrefab, position, rotation);
+
+        detail.GetComponent<SetSkin>().Set(_detailsMaterial);
         _details.Insert(0, detail);
         _positionHistory.Add(position);
         _rotationHistory.Add(rotation);
     }
+    
 
     private void RemoveDetail()
     {

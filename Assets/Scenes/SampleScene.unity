@@ -2532,13 +2532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3f506c2acf400a4badaabf5dae55f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detailCount: 6
-  _controllerPrefab: {fileID: 3108544557754363618, guid: 0ac434ea353afdc4aa3b06fc2c49e804,
-    type: 3}
-  _snakePrefab: {fileID: 2953870386608324621, guid: c52a75e4e9f89564bbcee1b078ea82c8,
-    type: 3}
-  _controller: {fileID: 0}
-  _snake: {fileID: 0}
 --- !u!4 &503898979
 Transform:
   m_ObjectHideFlags: 0
@@ -10885,6 +10878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2077997705}
   - component: {fileID: 2077997704}
+  - component: {fileID: 2077997706}
   m_Layer: 0
   m_Name: MultiplayerManager
   m_TagString: Untagged
@@ -10905,6 +10899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _colyseusSettings: {fileID: 11400000, guid: 2a2d9f0c09f1a4548a18ceeaaaa6f1bf, type: 2}
+  _skins: {fileID: 2077997706}
   _playerAim: {fileID: 4395588351619957847, guid: e8f734240ccc217409ef35366d0b5d29,
     type: 3}
   _controllerPrefab: {fileID: 3108544557754363618, guid: 0ac434ea353afdc4aa3b06fc2c49e804,
@@ -10926,6 +10921,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2077997706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077997703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fef4ae173977249af2a2fa729e5fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _materials:
+  - {fileID: 2100000, guid: dcfe6d4b2970c7e468accb7c1e25262f, type: 2}
+  - {fileID: 2100000, guid: 92c1e7d2ca070334aac4768062ccf3d6, type: 2}
+  - {fileID: 2100000, guid: 11f2c6e3c193b9a45b205c183f80e5bf, type: 2}
+  - {fileID: 2100000, guid: 79789739ca6bcee44a5b8dba631397f4, type: 2}
 --- !u!1001 &2082212829
 PrefabInstance:
   m_ObjectHideFlags: 0

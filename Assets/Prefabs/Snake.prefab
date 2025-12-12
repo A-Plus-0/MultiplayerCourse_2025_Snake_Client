@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 2697928728844271792}
   - component: {fileID: 2953870386608324621}
   - component: {fileID: 2128237590337255727}
+  - component: {fileID: 4472841415030757842}
   m_Layer: 0
   m_Name: Snake
   m_TagString: Untagged
@@ -113,9 +114,8 @@ MonoBehaviour:
   _tailPrefab: {fileID: 5137498739253222553, guid: 4b275bba602b8764583e5175efc857e9,
     type: 3}
   _head: {fileID: 5644104229100066443}
-  _directionPoint: {fileID: 4655907697092293941}
   _speed: 10
-  _rotateSpeed: 90
+  _setSkin: {fileID: 4472841415030757842}
 --- !u!65 &2128237590337255727
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -137,6 +137,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &4472841415030757842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4869082998874404240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8665b55e5186864183c6676c8d6e749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshRenderers:
+  - {fileID: 3659765792184507817}
+  - {fileID: 662775071076973379}
+  - {fileID: 2094285342659078476}
+  - {fileID: 1573490562277038509}
+  - {fileID: 7886126395942919139}
+  - {fileID: 5491075220455931495}
 --- !u!1001 &1816705814883494626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -209,6 +228,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 9178472411250999964}
   m_SourcePrefab: {fileID: 100100000, guid: 88e26e9d9d168ce469b1b937564c1676, type: 3}
+--- !u!23 &662775071076973379 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1154216979754815905, guid: 88e26e9d9d168ce469b1b937564c1676,
+    type: 3}
+  m_PrefabInstance: {fileID: 1816705814883494626}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1573490562277038509 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -8295607405342379185, guid: 88e26e9d9d168ce469b1b937564c1676,
+    type: 3}
+  m_PrefabInstance: {fileID: 1816705814883494626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1582827810098599859 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 88e26e9d9d168ce469b1b937564c1676,
@@ -236,9 +267,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!23 &2094285342659078476 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 299024541211165614, guid: 88e26e9d9d168ce469b1b937564c1676,
+    type: 3}
+  m_PrefabInstance: {fileID: 1816705814883494626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2214791546341494025 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 88e26e9d9d168ce469b1b937564c1676,
+    type: 3}
+  m_PrefabInstance: {fileID: 1816705814883494626}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3659765792184507817 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -6053922253038618805, guid: 88e26e9d9d168ce469b1b937564c1676,
+    type: 3}
+  m_PrefabInstance: {fileID: 1816705814883494626}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5491075220455931495 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3097900941312142203, guid: 88e26e9d9d168ce469b1b937564c1676,
+    type: 3}
+  m_PrefabInstance: {fileID: 1816705814883494626}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7886126395942919139 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -844677283057356543, guid: 88e26e9d9d168ce469b1b937564c1676,
     type: 3}
   m_PrefabInstance: {fileID: 1816705814883494626}
   m_PrefabAsset: {fileID: 0}
