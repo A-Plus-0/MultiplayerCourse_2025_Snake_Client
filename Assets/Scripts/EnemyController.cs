@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    private string _clienID;
     private Player _player;
     private Snake _snake;
 
-    public void Init(Player player, Snake snake)
+    public void Init(string clienID, Player player, Snake snake)
     {
+        _clienID = clienID;
         _player = player;
         _player.OnChange += OnChange;
 
@@ -31,6 +33,9 @@ public class EnemyController : MonoBehaviour
                 case "d":
                     _snake.SetDetailCount((byte)changes[i].Value);
                     break;
+                case "score":
+                    MultiplayerManager.Instance.UpdateScore(_clienID, (ushort)changes[i].Value);
+                    break;
                 default:
                     Debug.LogWarning("Не обрабатывается изменение поля " + changes[i].Field);
                     break;
@@ -42,6 +47,6 @@ public class EnemyController : MonoBehaviour
     public void Destroy()
     {
         if (_player != null) _player.OnChange -= OnChange;
-        _snake.Destroy();
+        _snake.Destroy(_clienID);
     }
 }

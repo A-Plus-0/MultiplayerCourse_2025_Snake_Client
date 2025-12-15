@@ -9,12 +9,15 @@ public class Controller : MonoBehaviour
     [SerializeField] private Transform _cursor;
     private MultiplayerManager _multiplayerManager;
     private PlayerAim _playerAim;
+    private string _clienID;
     private Player _player;
     private Snake _snake;
     private Camera _camera;
     private Plane _plane;
-    public void Init(PlayerAim aim, Player player, Snake snake)
+    public void Init(string clienID, PlayerAim aim, Player player, Snake snake)
     {
+        _clienID = clienID;
+
         _multiplayerManager = MultiplayerManager.Instance;
 
         _playerAim = aim;
@@ -23,7 +26,8 @@ public class Controller : MonoBehaviour
         _camera = Camera.main;
         _plane = new Plane(Vector3.up, Vector3.zero);
 
-        _snake.AddComponent<CameraManager>().Init(_cameraOffsetY);
+        _camera.transform.parent = _snake.transform;
+        _camera.transform.localPosition = Vector3.up * _cameraOffsetY;
 
         _player.OnChange += OnChange;
     }
@@ -75,6 +79,9 @@ public class Controller : MonoBehaviour
                 case "d":
                     _snake.SetDetailCount((byte)changes[i].Value);
                     break;
+                case "score":
+                    _multiplayerManager.UpdateScore(_clienID,(ushort)changes[i].Value);
+                    break;
                 default:
                     Debug.LogWarning("Не обрабатывается изменение поля " + changes[i].Field);
                     break;
@@ -84,7 +91,10 @@ public class Controller : MonoBehaviour
     }
     public void Destroy()
     {
+        _camera.transform.parent = null;
+
         _player.OnChange -= OnChange;
-        _snake.Destroy();
+        _snake.Destroy(_clienID);
+        Destroy(gameObject);
     }
 }
