@@ -11053,6 +11053,8 @@ MonoBehaviour:
     type: 3}
   _snakePrefab: {fileID: 2953870386608324621, guid: c52a75e4e9f89564bbcee1b078ea82c8,
     type: 3}
+  _nickNamePrefab: {fileID: 7585777138955965167, guid: da5771a7f2651e443a38e73c2dc6000e,
+    type: 3}
   _applePrefab: {fileID: 68606959430990172, guid: 7cc22566afe9b5c41a14ebf49873a862,
     type: 3}
   _text: {fileID: 2130247825}

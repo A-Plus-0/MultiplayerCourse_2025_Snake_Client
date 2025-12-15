@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using System;
 using UnityEngine.UI;
 using System.Linq;
+using Unity.Mathematics;
 
 public class MultiplayerManager : ColyseusManager<MultiplayerManager>
 {
@@ -100,6 +101,8 @@ public class MultiplayerManager : ColyseusManager<MultiplayerManager>
     #endregion
 
     #region Enemy
+    [SerializeField] private GameObject _nickNamePrefab;
+
     Dictionary<string, EnemyController> _enemys = new Dictionary<string, EnemyController>();
 
     private void CreateEnemy(string key, Player player)
@@ -108,6 +111,11 @@ public class MultiplayerManager : ColyseusManager<MultiplayerManager>
 
         Snake snake = Instantiate(_snakePrefab, position, Quaternion.identity);
         snake.Init(player.d);
+
+        var textNickName = Instantiate(_nickNamePrefab, snake.transform).GetComponentInChildren<Text>();
+        textNickName.text = player.login;
+
+        textNickName.color = UnityEngine.Random.ColorHSV(0, 1, 1, 1, 1, 1);
 
         EnemyController enemyController = snake.AddComponent<EnemyController>();
         enemyController.Init(key, player, snake);
